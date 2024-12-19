@@ -31,7 +31,7 @@ public class UserDetailsServiceImpl {
 
     public UserDetails loadUserInfo(String email, String token) {
 
-        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        UsuarioDTO usuarioDTO = usuarioClient.buscarUsuarioByEmail(email, token);
         return User.withUsername(usuarioDTO.getEmail())
                 .password(usuarioDTO.getSenha())
                 .build();
